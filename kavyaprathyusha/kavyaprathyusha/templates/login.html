@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Kavya Prathyusha's Blog</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>{% load static %}
+    <link rel="stylesheet" href="{% static 'register/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+        <div class="container">
+                <div class="row justify-content-center">
+                        <div class="col-4">
+                                <div class="card">
+                                        <h4 class="card-header text-center">Login here..</h4>
+                                        <div class="card-block">
+    <form action="login" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+                <label>Username</label>
+                <input name="username" type="text" class="form-control">
+                {% if messages %} 
+                {%for message in messages %} 
+                {%if "email" in message.tags %}
+                <div class="form-group has-danger">
+                    <div class="form-control-feedback">{{message}}</div>
+                  </div>
+                {%endif%} {%endfor%} {% endif %}
+            </div>
+            <div class="form-group">
+                    <label>Password</label>
+                    <input name="password" type="password" class="form-control">
+                    {% if messages %} 
+                    {%for message in messages %} 
+                    {%if "email" in message.tags %}
+                    <div class="form-group has-danger">
+                        <div class="form-control-feedback">{{message}}</div>
+                      </div>
+                    {%endif%} {%endfor%} {% endif %}
+                </div>
+                <div class="mx-auto text-center">
+                        <input type="submit" value="Login Now!" class="btn btn-primary">
+                    </div>
+                    <p>Dont have an account? <a href="register">Register Here!</a></p>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <div>
+            {% for message in messages %}
+            <h3> {{message}}  </h3>
+            {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,275 @@
+﻿sudo apt install python
+sudo apt-get update
+sudo apt install python-pip
+pip install django
+
+/home/ubuntu
+mkdir ccproject
+
+cd ccproject
+sudo apt install python-django-common
+sudo apt-get install python-django
+
+ django-admin startproject mysite
+
+----------
+Installed postgres
+Installed pgadmin
+-------
+
+In settings.py:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'CCproject',
+        'USER':'postgres',
+        'PASSWORD':'1234',
+        'HOST' : 'localhost'
+    }
+}
+
+
+install psycopg2 -> an adapter for connecting django project to database in postgresql
+pip install psycopg2
+
+
+
+C Users Admin mysite
+
+py manage.py runserver
+pip install py-bcrypt --user
+
+https://stackoverflow.com/questions/44238967/importerror-no-module-named-bcrypt
+https://docs.djangoproject.com/en/2.2/intro/tutorial02/
+
+sudo apt-get install sqlitebrowser
+
+-------------------------
+youtube telusko:
+
+ pip3 install --user virtualenvwrapper-win
+
+1.pip install virtualenvwrapper-win (created in C users admin Python) with test as env name
+
+mkvirtualenv test  or virtualenv test or workon test
+
+pip install django
+django-admin --version
+
+mkdir Projects
+cd Projects
+django-admin startproject Telusko
+
+python manage.py startapp calc
+python manage.py runserver
+
+pip install psycopg2
+
+https://docs.djangoproject.com/en/2.2/ref/models/fields/
+
+Migration does object to DB creation:
+
+
+python manage.py makemigrations
+python manage.py sqlmigrate <package name> version number
+ex python manage.py sqlmigrate travello 001
+python manage.py migrate
+
+Re-migration:
+
+python manage.py makemigrations
+python manage.py migrate
+
+Admin Panel:
+
+run the host and /admin
+If operational error:
+ python manage.py migrate
+ 
+ create :
+ 
+ python manage.py createsuperuser
+ 
+ C:\Users\Admin\Python\Projects\Telusko>python manage.py createsuperuser
+Username (leave blank to use 'admin'): kavyaprathyusha
+Email address: chekkaka@mail.uc.edu
+Password: Oneh8@u7
+Password (again):
+Superuser created successfully.
+----------------------
+
+You've locked yourself out, because you enabled md5 authentication for database user postgres without setting a password for the database user postgres.
+
+Add a new line to the top of pg_hba.conf:
+
+local    postgres     postgres     peer
+then restart/reload PostgreSQL and:
+
+sudo -u postgres psql
+From the resulting prompt:
+
+ALTER USER postgres PASSWORD 'my_postgres_password';
+
+
+---------------------------
+Creating a PostgreSQL Database
+Step 1: Login as the Postgres User
+
+su - postgres
+
+Step 2: Enter the PostgreSQL Environment
+
+psql
+
+With the psql command, you’ll be greeted by its current version and command prompt.
+
+psql (9.5.14)
+Type "help" for help.
+postgres=#
+
+Step 3: Creating the PostgreSQL Database
+
+Let’s create our first database by typing in the command below.  Replace dbname with the database name of your choice.
+
+CREATE DATABASE dbname;
+
+Open admin.py and 
+admin.site.register(Destination)
+
+Now u can see the space for entereing values to your DB
+
+
+Working project : C:\Users\Admin\Python\Projects\telusko
+
+
+
+
+---------------------------------
+
+Part 1: Install the required packages
+sudo apt-get install python-pip python-dev build-essential
+
+sudo pip install virtualenv virtualenvwrapper
+
+sudo pip install --upgrade pip
+
+Part 2: Setup virtualenvwrapper in ~/.bashrc.
+I used vim to edit ~/.bashrc.
+
+Firstly, install vim with the command:
+
+sudo apt-get install vim
+
+Secondly, edit ~/.bashrc
+
+vi .bashrc
+
+enter [Shift] + [g] //G (shift + g): to go the end of the file
+
+enter [a] //Type a to edit the file
+
+export WORKON_HOME=~/virtualenvs
+
+source /usr/local/bin/virtualenvwrapper.sh
+
+enter [Esc] then :wq
+
+The Esc key means return the command line, :wq means save the changes and exit vi.
+
+Part 3: Enable the virtual environment.
+source ~/.bashrc
+
+mkdir -p $WORKON_HOME
+
+Now, you can try again with mkvirtualenv:
+
+mkvirtualenv your_project
+
+To enable the 'your_project' virtual environment:
+
+ workon your_project
+
+To exit it:
+deactivate
+
+if any error try re installing : sudo apt install virtualenv
+
+
+1.transferred the filr through file zilla by using public DNS in sitemanager. 
+ 
+--
+You need to have both PostgresSQL and and Python development packages installed, otherwise the psycopg2 installation will fail.
+
+Run the command for your operatiing system mentioned below, then try installing psycopg2 again.
+
+Operating Systems / Distros
+Debian/Ubuntu
+Python 2
+sudo apt install libpq-dev python-dev
+---
+pip install psycopg2
+----
+pip install pillow
+-----
+
+
+sudo apt-get remove --purge python3.6
+
+
+error with pscycopg2:
+77
+
+Step 1: Install the dependencies
+
+sudo apt-get install build-dep python-psycopg2
+Step 2: Run this command in your virtualenv
+
+pip install psycopg2 
+sudo apt-get install libpq-dev python-dev
+run error with 2 python:
+
+https://stackoverflow.com/questions/47563013/unable-to-import-path-from-django-urls/47563055
+
+postgres:
+https://tecadmin.net/install-postgresql-server-on-ubuntu/
+https://stackoverflow.com/questions/9463318/how-to-exit-from-postgresql-command-line-utility-psql
+
+https://medium.com/@dikshitkathuria1803/hosting-a-django-website-on-aws-ec2-the-easy-way-3577ab4895d6
+django aws deploy:
+
+1. create virtual env and workon env
+2. python3 manage.py runserver
+3. python3 manage.py --check deploy
+In server ec2:
+
+4. sudo apt-get update
+5. sudo apt-get upgrade
+6. wsgi interface_links ngnix and python app using unix sockets that supports inter process communication
+	python3 --version
+workon test (create virtual env)
+7. pip3 install django
+8.go to aws project folder 
+9. pip3 install gunicorn
+10. sudo apt-get install nginx
+11. sudo nginx
+12. cd to folder where u find wsgi.py
+13. gunicorn --bind 0.0.0.0:8000 telusko.wsgi:application (from first telusko)
+
+****** 	ADD INBOUND AND OUTBOUND TRAFFIC TO BOTH THE 8000 PORT AND 80 PORT ****
+
+netstat -ntlp
+
+kill -9 pid
+
+sudo apt-get install python-psycopg2
+
+
+sudo apt-get install -y ngnix
+sudo ngnix
+
+https://www.youtube.com/watch?v=u0oEIqQV_-E&t=237s
+https://www.liquidweb.com/kb/creating-and-deleting-a-postgresql-database/
+https://askubuntu.com/questions/413585/postgres-password-authentication-fails
+
+---------------------
+User is provided by django framework. SO we are using it to access auth_users table and models

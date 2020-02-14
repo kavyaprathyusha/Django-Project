@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Kavya Prathyusha's Blog</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>{% load static %}
+    <link rel="stylesheet" href="{% static 'register/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+        <div class="container">
+                <div class="row justify-content-center">
+                        <div class="col-12">
+                                <div class="card">
+                                        <h4 class="card-header text-center">Welcome to Kavya Prathyusha's Blog</h4>
+                                        <div class="card-block">
+                                                <p class="text-center">
+                                                I would be posting all my learnings on this website! 
+                                                        <br>    
+                                                </p>                     
+                                                        {% if user.is_authenticated %}
+                                                                                <li>Hello, {{user.first_name}}</li>
+                                                                                <div class="row">
+                                                                                <div class="col-4">  
+                                                                                <div class="card-block">
+                                
+                                                                                <p class="text-center">Your account details: </p>
+                                                                                <li>Username : {{user.username}}</li>
+                                                                                <li>First Name : {{user.first_name}}</li>
+                                                                                <li>Last Name : {{user.last_name}}</li>
+                                                                                <li>Email : {{user.email}}</li>
+                                                                                <li><a href="accounts/upload">Upload a file here to check word count</a></li>
+                                                                                      
+                                                                                <li><a href="accounts/logout">Logout</a></li>
+                                                                                </div>
+                                                                        </div></div>
+                                                                                {% else %}	
+                                                                                <p class="text-center">Register for more updates! </p>
+										<li><a href="accounts/register">Register</a></li>
+										<li><a href="accounts/login">Login</a></li>
+										{% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <div>
+            {% for message in messages %}
+            <h3> {{message}}  </h3>
+            {% endfor %}
+    </div>
+</body>
+</html>

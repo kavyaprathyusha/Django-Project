@@ -1,0 +1,311 @@
+Using username "ubuntu".
+Authenticating with public key "imported-openssh-key"
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-1044-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Sep 20 19:08:42 UTC 2019
+
+  System load:  0.0               Processes:           99
+  Usage of /:   28.0% of 7.69GB   Users logged in:     0
+  Memory usage: 25%               IP address for eth0: 172.31.41.29
+  Swap usage:   0%
+
+ * Congrats to the Kubernetes community on 1.16 beta 1! Now available
+   in MicroK8s for evaluation and testing, with upgrades to RC and GA
+
+     snap info microk8s
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Thu Sep 19 23:13:06 2019 from 129.137.28.238
+ubuntu@ip-172-31-41-29:~$ ls -ltr
+total 12
+drwxrwxr-x  3 ubuntu ubuntu 4096 Sep 19 13:38 virtualenvs
+drwxrwxr-x 11 ubuntu ubuntu 4096 Sep 19 14:19 telusko
+drwxrwxr-x 10 ubuntu ubuntu 4096 Sep 19 23:20 kavyaprathyusha
+ubuntu@ip-172-31-41-29:~$ cd kavyaprathyusha/
+ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ workon test
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ python3 manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/postgresql/base.py", line 178, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: FATAL:  database "kavyaprathyusha" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/utils/autoreload.py", line 54, in wrapper
+    fn(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check_migrations()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/core/management/base.py", line 453, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/migrations/loader.py", line 49, in __init__
+    self.build_graph()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/migrations/loader.py", line 212, in build_graph
+    self.applied_migrations = recorder.applied_migrations()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/migrations/recorder.py", line 73, in applied_migrations
+    if self.has_table():
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/migrations/recorder.py", line 56, in has_table
+    return self.Migration._meta.db_table in self.connection.introspection.table_names(self.connection.cursor())
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/postgresql/base.py", line 178, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: FATAL:  database "kavyaprathyusha" does not exist
+
+
+^Z
+[1]+  Stopped                 python3 manage.py runserver
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ su - postgres
+Password:
+su: Authentication failure
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ su - postgres
+Password:
+su: Authentication failure
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ su - postgres
+Password:
+su: Authentication failure
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ sudo -u postgres psql
+psql (10.10 (Ubuntu 10.10-0ubuntu0.18.04.1))
+Type "help" for help.
+
+postgres=# ALTER USER postgres PASSWORD '1234'
+postgres-# psql
+postgres-# /list
+postgres-# \q
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ su - postgres
+Password:
+su: Authentication failure
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ ^C
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ sudo -i
+root@ip-172-31-41-29:~# logout
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ sudo -u postgres psql
+psql (10.10 (Ubuntu 10.10-0ubuntu0.18.04.1))
+Type "help" for help.
+
+postgres=# ALTER USER postgres PASSWORD 1234
+postgres-# \list
+                              List of databases
+   Name    |  Owner   | Encoding | Collate |  Ctype  |   Access privileges
+-----------+----------+----------+---------+---------+-----------------------
+ postgres  | postgres | UTF8     | C.UTF-8 | C.UTF-8 |
+ telusko   | postgres | UTF8     | C.UTF-8 | C.UTF-8 |
+ template0 | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+           |          |          |         |         | postgres=CTc/postgres
+ template1 | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+           |          |          |         |         | postgres=CTc/postgres
+(4 rows)
+
+postgres-# CREATE DATABASE kavyaprathyusha;
+ERROR:  syntax error at or near "1234"
+LINE 1: ALTER USER postgres PASSWORD 1234
+                                     ^
+postgres=# CREATE DATABASE kavyaprathyusha;
+CREATE DATABASE
+postgres=# /list
+postgres-# \list
+logout
+There are stopped jobs.
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ python3 manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, kavyaprathyusha_blog, sessions.
+Run 'python manage.py migrate' to apply them.
+
+September 20, 2019 - 19:17:09
+Django version 2.2.5, using settings 'kavyaprathyusha.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+^C(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ sudo apt-get update
+Hit:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:3 http://us-east-2.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:4 http://us-east-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [739 kB]
+Get:5 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:6 http://us-east-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1006 kB]
+Fetched 1997 kB in 1s (2332 kB/s)
+Reading package lists... Done
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ sudo apt-get upgrade
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating upgrade... Done
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ python3 manage.py makemigrations
+No changes detected
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ python manage.py kavyaprathyusha 0001
+Unknown command: 'kavyaprathyusha'
+Type 'manage.py help' for usage.
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ python manage.py sqlmigrate kavyaprathyusha 0001
+Traceback (most recent call last):
+  File "manage.py", line 21, in <module>
+    main()
+  File "manage.py", line 17, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/core/management/__init__.py", line 364, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/core/management/__init__.py", line 356, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/core/management/base.py", line 283, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/core/management/commands/sqlmigrate.py", line 33, in execute
+    return super(Command, self).execute(*args, **options)
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/core/management/base.py", line 327, in execute
+    self.check()
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/core/management/base.py", line 359, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/core/management/base.py", line 346, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/core/checks/registry.py", line 81, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/core/checks/urls.py", line 16, in check_url_config
+    return check_resolver(resolver)
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/core/checks/urls.py", line 26, in check_resolver
+    return check_method()
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/urls/resolvers.py", line 256, in check
+    for pattern in self.url_patterns:
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/urls/resolvers.py", line 407, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ubuntu/virtualenvs/test/local/lib/python2.7/site-packages/django/urls/resolvers.py", line 400, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/ubuntu/kavyaprathyusha/kavyaprathyusha/urls.py", line 17, in <module>
+    from django.urls import path, include
+ImportError: cannot import name path
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ vi manage.py
+
+[3]+  Stopped                 vi manage.py
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ python3 manage.py sqlmigrate kavyaprathyusha 0001
+CommandError: No installed app with label 'kavyaprathyusha'.
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ python3 manage.py sqlmigrate kavyaprathyusha_blog 0001
+BEGIN;
+--
+-- Create model Destination
+--
+CREATE TABLE "kavyaprathyusha_blog_destination" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(100) NOT NULL, "img" varchar(100) NOT NULL, "desc" text NOT NULL, "price" integer NOT NULL, "offer" boolean NOT NULL);
+COMMIT;
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ python3 manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, kavyaprathyusha_blog, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying kavyaprathyusha_blog.0001_initial... OK
+  Applying sessions.0001_initial... OK
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ python3 manage.py runserver    Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+September 20, 2019 - 19:20:18
+Django version 2.2.5, using settings 'kavyaprathyusha.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+^C(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ sudo apt-get install -y ngnix
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package ngnix
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ sudo apt-get install -y nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+nginx is already the newest version (1.14.0-0ubuntu1.6).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ pip3 install gunicorn
+Collecting gunicorn
+  Using cached https://files.pythonhosted.org/packages/8c/da/b8dd8deb741bff556db53902d4706774c8e1e67265f69528c14c003644e6/gunicorn-19.9.0-py2.py3-none-any.whl
+Installing collected packages: gunicorn
+Successfully installed gunicorn-19.9.0
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ gunicorn --bind 0.0.0.0:8000 kavyaprathyusha_blog.wsgi:application
+[2019-09-20 19:22:19 +0000] [15857] [INFO] Starting gunicorn 19.9.0
+[2019-09-20 19:22:19 +0000] [15857] [INFO] Listening at: http://0.0.0.0:8000 (15857)
+[2019-09-20 19:22:19 +0000] [15857] [INFO] Using worker: sync
+[2019-09-20 19:22:19 +0000] [15860] [INFO] Booting worker with pid: 15860
+[2019-09-20 19:22:19 +0000] [15860] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+ModuleNotFoundError: No module named 'kavyaprathyusha_blog.wsgi'
+[2019-09-20 19:22:19 +0000] [15860] [INFO] Worker exiting (pid: 15860)
+[2019-09-20 19:22:19 +0000] [15857] [INFO] Shutting down: Master
+[2019-09-20 19:22:19 +0000] [15857] [INFO] Reason: Worker failed to boot.
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ gunicorn --bind 0.0.0.0:8000 kavyaprathyusha.wsgi:application
+[2019-09-20 19:22:28 +0000] [15862] [INFO] Starting gunicorn 19.9.0
+[2019-09-20 19:22:28 +0000] [15862] [INFO] Listening at: http://0.0.0.0:8000 (15862)
+[2019-09-20 19:22:28 +0000] [15862] [INFO] Using worker: sync
+[2019-09-20 19:22:28 +0000] [15865] [INFO] Booting worker with pid: 15865

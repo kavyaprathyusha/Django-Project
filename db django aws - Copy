@@ -1,0 +1,167 @@
+Using username "ubuntu".
+Authenticating with public key "imported-openssh-key"
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-1044-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Sep 20 19:08:42 UTC 2019
+
+  System load:  0.0               Processes:           99
+  Usage of /:   28.0% of 7.69GB   Users logged in:     0
+  Memory usage: 25%               IP address for eth0: 172.31.41.29
+  Swap usage:   0%
+
+ * Congrats to the Kubernetes community on 1.16 beta 1! Now available
+   in MicroK8s for evaluation and testing, with upgrades to RC and GA
+
+     snap info microk8s
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Thu Sep 19 23:13:06 2019 from 129.137.28.238
+ubuntu@ip-172-31-41-29:~$ ls -ltr
+total 12
+drwxrwxr-x  3 ubuntu ubuntu 4096 Sep 19 13:38 virtualenvs
+drwxrwxr-x 11 ubuntu ubuntu 4096 Sep 19 14:19 telusko
+drwxrwxr-x 10 ubuntu ubuntu 4096 Sep 19 23:20 kavyaprathyusha
+ubuntu@ip-172-31-41-29:~$ cd kavyaprathyusha/
+ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ workon test
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ python3 manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/postgresql/base.py", line 178, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: FATAL:  database "kavyaprathyusha" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/utils/autoreload.py", line 54, in wrapper
+    fn(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check_migrations()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/core/management/base.py", line 453, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/migrations/loader.py", line 49, in __init__
+    self.build_graph()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/migrations/loader.py", line 212, in build_graph
+    self.applied_migrations = recorder.applied_migrations()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/migrations/recorder.py", line 73, in applied_migrations
+    if self.has_table():
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/migrations/recorder.py", line 56, in has_table
+    return self.Migration._meta.db_table in self.connection.introspection.table_names(self.connection.cursor())
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/postgresql/base.py", line 178, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: FATAL:  database "kavyaprathyusha" does not exist
+
+
+^Z
+[1]+  Stopped                 python3 manage.py runserver
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ su - postgres
+Password:
+su: Authentication failure
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ su - postgres
+Password:
+su: Authentication failure
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ su - postgres
+Password:
+su: Authentication failure
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ sudo -u postgres psql
+psql (10.10 (Ubuntu 10.10-0ubuntu0.18.04.1))
+Type "help" for help.
+
+postgres=# ALTER USER postgres PASSWORD '1234'
+postgres-# psql
+postgres-# /list
+postgres-# \q
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ su - postgres
+Password:
+su: Authentication failure
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ ^C
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ sudo -i
+root@ip-172-31-41-29:~# logout
+(test) ubuntu@ip-172-31-41-29:~/kavyaprathyusha$ sudo -u postgres psql
+psql (10.10 (Ubuntu 10.10-0ubuntu0.18.04.1))
+Type "help" for help.
+
+postgres=# ALTER USER postgres PASSWORD 1234
+postgres-# \list
+                              List of databases
+   Name    |  Owner   | Encoding | Collate |  Ctype  |   Access privileges
+-----------+----------+----------+---------+---------+-----------------------
+ postgres  | postgres | UTF8     | C.UTF-8 | C.UTF-8 |
+ telusko   | postgres | UTF8     | C.UTF-8 | C.UTF-8 |
+ template0 | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+           |          |          |         |         | postgres=CTc/postgres
+ template1 | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+           |          |          |         |         | postgres=CTc/postgres
+(4 rows)
+
+postgres-# CREATE DATABASE kavyaprathyusha;
+ERROR:  syntax error at or near "1234"
+LINE 1: ALTER USER postgres PASSWORD 1234
+                                     ^
+postgres=# CREATE DATABASE kavyaprathyusha;
+CREATE DATABASE
+postgres=# /list
+postgres-# \list
+
+
+
+
+
+                                 List of databases
+      Name       |  Owner   | Encoding | Collate |  Ctype  |   Access privileges
+-----------------+----------+----------+---------+---------+-----------------------
+ kavyaprathyusha | postgres | UTF8     | C.UTF-8 | C.UTF-8 |
+ postgres        | postgres | UTF8     | C.UTF-8 | C.UTF-8 |
+ telusko         | postgres | UTF8     | C.UTF-8 | C.UTF-8 |
+ template0       | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+                 |          |          |         |         | postgres=CTc/postgres
+ template1       | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+                 |          |          |         |         | postgres=CTc/postgres
+(5 rows)
+
+(END)
+
+Ctrl D to exit
